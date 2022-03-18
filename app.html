@@ -53,18 +53,57 @@
 
     <!-- MAIN SECTION -->
     <main class="flex-shrink-0">
-        <div class="container"></div>
+        <div class="container mt-5">
+            <div class="row row-cols-1 row-cols-lg-2">
+                <div class="col border-end border-2">
+                    <h1 class="display-5 fw-bold lh-1 mb-3">
+                        String Reverser: A Coding Project
+                    </h1>
+
+                    <h4 class="lead project-discription py-0">
+                        This program will check if the user input is a palindrome.
+                    </h4>
+                    <h2>
+                        Instructions
+                    </h2>
+                    <p>
+                        Input a word or phrase in the input field. Press 'check palindrome' button for result.
+                    </p>
+                </div>
+                <div class="col">
+                    <h5 class="border-1 border-bottom">
+                        Enter text
+                    </h5>
+                    <form>
+                        <div class="col">
+                            <input id="userInput" placeholder="Enter text" type="text" class="form-control">
+                        </div>
+
+                        <div class="mt-3">
+                            <button id="palindromeButton" type="button" class="btn btn-dark btn-lg">check
+                                palindrome</button>
+                        </div>
+                    </form>
+                    <h2 class="mt-2 border-top border-2">
+                        Results
+                    </h2>
+                    <textarea id="resultDisplayArea">
+
+                    </textarea>
+                </div>
+            </div>
+        </div>
     </main>
 
-      <!-- FOOTER SECTION -->
-      <footer class="footer mt-auto py-3">
+    <!-- FOOTER SECTION -->
+    <footer class="footer mt-auto py-3">
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-lg-2 gy-2">
                 <div class="col order-last order-lg-first text-light">
                     <div>
                         <span class="text-muted">
                             &copy;2021
-                        </span>  Thomas Pereira | thomaspereira1994@outlook.com
+                        </span> Thomas Pereira | thomaspereira1994@outlook.com
                     </div>
                 </div>
 
@@ -107,6 +146,9 @@
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
     </script>
     <script src="/js/site.js"></script>
+    <script>
+        document.getElementById("palindromeButton").addEventListener("click", controllerFunction)
+    </script>
 </body>
 
 </html>
