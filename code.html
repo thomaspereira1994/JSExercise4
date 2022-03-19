@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project by Thomas Pereira</title>
+    <title>Palindrome: A Coding Project by Thomas Pereira</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,7 +24,7 @@
     <!-- NAV SECTION -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">APP NAME</a>
+            <a class="navbar-brand" href="#">Palindrome</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -59,16 +59,56 @@
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                        //call hello world
-                        function HelloWorld(){
-                        alert("hello world");
+                        function getValue(){
+                            let userInput = document.getElementById("userInput").value;
+                        
+                            let isPalindrome = checkForPalindrome(userInput);
+                        
+                            displayMessage(isPalindrome);
+                        }
+                        
+                        function checkForPalindrome(userInput){
+                            userInput = userInput.toLowerCase();
+                        
+                            let regex = /[^a-z0-9]/gi;
+                            userInput = userInput.replace(regex,"");
+                        
+                            let revInput = [];
+                            let isPalindrome = {};
+                        
+                            for (let index = userInput.length -1; index >= 0; index--) {
+                                revInput += userInput[index];
+                            }
+                        
+                            if(revInput == userInput){
+                                isPalindrome.msg = "Text entered is a palindrome";
+                            }
+                            else{
+                                isPalindrome.msg = "Text entered is not a palindrome";
+                            }
+                        
+                            isPalindrome.reversed = revInput;
+                        
+                            return isPalindrome;
+                        }
+                        
+                        function displayMessage(isPalindrome){
+                            document.getElementById("resultDisplayArea").innerHTML = isPalindrome.msg;
                         }
                     </code></pre>
                 </div>
                 <div class="col-lg-4 pt-2">
-                    <p>The Code is structured in one function.</p>
-                    <h5>Hello world</h5>
-                    <p>Hello world is a function that displays an alert with a message of hello world</p>
+                    <p>The Code is structured in three functions.</p>
+                    <h5>getValue</h5>
+                    <p>getValue gets the user input, calls the function to check if input is a palindrome, and display the message.</p>
+                    <h5>checkForPalindrome</h5>
+                    <p>checkForPalindrome is the brains of the app. It compares the user input to the reverse of that string,
+                        and returns whether the text entered is a palindrome or not.
+                    </p>
+                    <h5>displayMessage</h5>
+                    <p>
+                        displayMessage will display the content of isPalindrome.msg to the user.
+                    </p>
                 </div>
             </div>
         </div>

@@ -1,31 +1,36 @@
-function controllerFunction() {
-    let userInput = document.getElementById("userInput");
-    
-    let reversedInput = reverseInput(userInput);
-    let isPalindrome = checkPalindrome(userInput, reversedInput);
-    
-    displayResult(isPalindrome);
+function getValue(){
+    let userInput = document.getElementById("userInput").value;
+
+    let isPalindrome = checkForPalindrome(userInput);
+
+    displayMessage(isPalindrome);
 }
 
-function reverseInput(userInput) {
-    let reversedInput = [];
+function checkForPalindrome(userInput){
+    userInput = userInput.toLowerCase();
 
-    for (let index = userInput.length - 1; index >= 0; index--) {
-        reversedInput += userInput[index];
+    let regex = /[^a-z0-9]/gi;
+    userInput = userInput.replace(regex,"");
+
+    let revInput = [];
+    let isPalindrome = {};
+
+    for (let index = userInput.length -1; index >= 0; index--) {
+        revInput += userInput[index];
     }
 
-    alert(reversedInput.value);
-    return reversedInput;
-}
-
-function checkPalindrome(userInput, reversedInput) {
-    if (userInput == reversedInput) {
-        return true;
-    } else {
-        return false;
+    if(revInput == userInput){
+        isPalindrome.msg = "Text entered is a palindrome";
     }
+    else{
+        isPalindrome.msg = "Text entered is not a palindrome";
+    }
+
+    isPalindrome.reversed = revInput;
+
+    return isPalindrome;
 }
 
-function displayResult(isPalindrome) {
-    document.getElementById("resultDisplayArea").value = isPalindrome;
+function displayMessage(isPalindrome){
+    document.getElementById("resultDisplayArea").innerHTML = isPalindrome.msg;
 }
